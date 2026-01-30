@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Mode Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('normal')">Normal</button>
+        <button class="tab-btn" onclick="switchTab('temperature')">Temp</button>
+        <button class="tab-btn" onclick="switchTab('weight')">Weight</button>
+    </div>
+
+    <div id="normal" class="content active">
+        <input type="text" id="display" disabled>
+        <div class="keys">
+            <button class="clear" onclick="clearDisplay()">AC</button>
+            <button class="operator" onclick="deleteLast()">DEL</button>
+            <button class="operator" onclick="appendToDisplay('/')">/</button>
+            <button class="operator" onclick="appendToDisplay('*')">×</button>
+            
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button class="operator" onclick="appendToDisplay('-')">-</button>
+            
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button class="operator" onclick="appendToDisplay('+')">+</button>
+            
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button class="equal-sign" onclick="calculateResult()">=</button>
+            
+            <button onclick="appendToDisplay('0')" style="grid-column: span 2;">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+        </div>
+    </div>
+
+    <div id="temperature" class="content">
+        <div class="input-group">
+            <label>Celsius (°C)</label>
+            <input type="number" id="celsius" oninput="convertTemp('C')">
+        </div>
+        <div class="input-group">
+            <label>Fahrenheit (°F)</label>
+            <input type="number" id="fahrenheit" oninput="convertTemp('F')">
+        </div>
+        <div class="input-group">
+            <label>Kelvin (K)</label>
+            <input type="number" id="kelvin" oninput="convertTemp('K')">
+        </div>
+    </div>
+
+    <div id="weight" class="content">
+        <div class="input-group">
+            <label>Kilograms (kg)</label>
+            <input type="number" id="kg" oninput="convertWeight('kg')">
+        </div>
+        <div class="input-group">
+            <label>Pounds (lbs)</label>
+            <input type="number" id="lbs" oninput="convertWeight('lbs')">
+        </div>
+        <div class="input-group">
+            <label>Ounces (oz)</label>
+            <input type="number" id="oz" oninput="convertWeight('oz')">
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
